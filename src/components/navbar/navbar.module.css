@@ -1,0 +1,53 @@
+.cont {
+height: 60px;
+width: 1200px;
+
+
+display: flex;
+justify-content: start;
+align-items: center;
+position: relative;
+}
+.cart {
+  position: absolute;
+  right: 100px;
+}
+ .cont > div > a{  
+    margin: 0;
+    text-decoration: none;
+    color: white;
+    
+}
+.cont > div {
+    width: 100px;
+  height: 30px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  }
+  .catLink {
+    display: none;
+  }
+  .cont .catSelect .catDiv {
+   width: 200px;
+   height: 200px;
+   position: absolute;
+   top: 30px;
+   left: 100px;
+   background-color: black;
+   display: flex;
+   align-items: start;
+   justify-content: start;
+   flex-direction: column;
+   padding: 40px;
+  
+
+  }
+  .catDiv a{
+    text-decoration: none;
+    color: white;
+    margin-bottom: 8px;
+  }
+
+  

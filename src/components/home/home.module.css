@@ -1,0 +1,47 @@
+.cont {
+ 
+
+
+ display: flex;
+ 
+ align-items: center;
+ justify-content: center;
+}
+.carrusel {
+    width: 80%;
+    height: 400px;
+   
+}
+.gridCont {
+    width: 1200px;
+    
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.contImageTop{
+ width: 100%;
+ 
+
+display: flex;
+justify-content: center;
+align-items: center;
+}
+.contImageTop img {
+    width: 100%;
+    height: auto;
+}
+.contImageTop2{
+    width: 100%;
+    
+ 
+   display: flex;
+   justify-content:space-between;
+   align-items: center;
+   }
+   .contImageTop2 img {
+    
+    width: 30%;
+    height: auto;
+}

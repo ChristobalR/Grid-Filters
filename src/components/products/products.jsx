@@ -1,17 +1,45 @@
-import { React, useState } from "react";
+import { React, useState, useRef, useEffect } from "react";
 import { useParams, useSearchParams, useNavigate } from "react-router-dom";
 import styles from "./products.module.css";
 import products from "./products.js";
 import subCategorias from "./categorias.js";
+import filtrarPorCoincidencia from "./coincidenciaArrays.js";
 
-const ProductosPorCategoriaYPagina = ({ porPage, text, noRenderPages, subCat, onDataReceived }) => {
+const ProductosPorCategoriaYPagina = ({
+  porPage,
+  text,
+  noRenderPages,
+  subCat,
+  onDataReceived,
+}) => {
   const [filter, setFilter] = useState(false);
-  const [display1, setDisplay1] = useState(false)
+  const [display1, setDisplay1] = useState(false);
   const setDis = () => {
-    setDisplay1(prevDisplay => !prevDisplay);
-  }
+    setDisplay1((prevDisplay) => !prevDisplay);
+  };
 
-  console.log(display1)
+
+  const containerRef = useRef(null);
+
+  useEffect(() => {
+    const handleOutsideClick = (event) => {
+      if (!containerRef.current.contains(event.target)) {
+        setDisplay1(false);
+      }
+    };
+
+    if (display1) {
+      document.addEventListener('mousedown', handleOutsideClick);
+    } else {
+      document.removeEventListener('mousedown', handleOutsideClick);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleOutsideClick);
+    };
+  }, [display1]);
+
+
   const subCategory = subCat;
   const { categoria } = useParams();
   const [searchP] = useSearchParams();
@@ -20,6 +48,9 @@ const ProductosPorCategoriaYPagina = ({ porPage, text, noRenderPages, subCat, on
   const price = searchP.get("price");
   const navigate = useNavigate();
   var objetoPropiedades = {};
+
+
+
   const propiedades = subCategorias.find((cat) => cat.hasOwnProperty(categoria))
     ? subCategorias.find((cat) => cat.hasOwnProperty(categoria))
     : [];
@@ -31,9 +62,13 @@ const ProductosPorCategoriaYPagina = ({ porPage, text, noRenderPages, subCat, on
       }
     });
   }
+
   const renderPages = noRenderPages ? false : true;
+
   const productsPerPage = porPage ? parseInt(porPage) : 6;
+
   const allProducts = products;
+
   var filteredProducts = categoria
     ? allProducts.filter((product) => product.category === categoria)
     : allProducts;
@@ -42,31 +77,27 @@ const ProductosPorCategoriaYPagina = ({ porPage, text, noRenderPages, subCat, on
       product.subcategory?.includes(subCategory)
     );
   }
-  function tienenCoincidencia(objeto1, objeto2) {
-    if (!objeto2) {
-      return false;
-    }
-    for (let propiedad in objeto1) {
-      if (objeto2.hasOwnProperty(propiedad)) {
-        let valores1 = objeto1[propiedad].split(",");
-        let valores2 = objeto2[propiedad].split(",");
-        if (!valores1.every((valor) => valores2.includes(valor))) {
-          return false;
-        }
-      } else {
-        return false;
-      }
-    }
-    return true;
-  }
+
+  const valor = Object.entries(objetoPropiedades);
+
+  const valorArray = valor.map((elemento) => elemento[1]);
+
+  const nuevoArray = valorArray.map((elemento) => elemento.split(","));
+
+
+  const filteredProductsFix = filtrarPorCoincidencia(
+    filteredProducts,
+    nuevoArray
+  );
+
   const isEmpty = (obj) => {
     return Object.keys(obj).length === 0;
   };
+
   var fixtest = !isEmpty(objetoPropiedades)
-    ? filteredProducts.filter((elemento) =>
-        tienenCoincidencia(objetoPropiedades, elemento.subcategoria)
-      )
+    ? filteredProductsFix
     : filteredProducts;
+
   if (price === "menorPrecio") {
     fixtest = fixtest.sort(function (a, b) {
       if (a.price > b.price) {
@@ -87,14 +118,18 @@ const ProductosPorCategoriaYPagina = ({ porPage, text, noRenderPages, subCat, on
       }
       return 0;
     });
+
   }
   const startIndex = (currentPage - 1) * productsPerPage;
+
   const paginatedProducts = fixtest.slice(
     startIndex,
     startIndex + productsPerPage
   );
   const endIndex = startIndex + productsPerPage;
+
   const maxPages = fixtest.length;
+
   var productsRender = 0;
   paginatedProducts.filter((product, index) => {
     productsRender = productsRender + 1;
@@ -126,7 +161,7 @@ const ProductosPorCategoriaYPagina = ({ porPage, text, noRenderPages, subCat, on
               <p>Ordenar por</p>
               <div></div>
             </button>
-            <div className={display1 ? styles.on : styles.off}></div>
+            <div ref={containerRef} className={display1 ? styles.on : styles.off}></div>
           </div>
         </div>
       )}

@@ -13,10 +13,12 @@
     background-color: rgb(255, 255, 255);
     padding: 20px;
     min-width: 280px;
-    height: 800px;
+    
     display: flex;
     flex-direction: column;
-   
+    -webkit-box-shadow: 0px 0px 2px -1px rgba(0,0,0,0.75);
+-moz-box-shadow: 0px 0px 2px -1px rgba(0,0,0,0.75);
+box-shadow: 0px 0px 2px -1px rgba(0,0,0,0.75);
 
 }
 .side .sideFiltros {
@@ -48,9 +50,7 @@
   
     
 }
-.sideFiltrosContcont {
-    margin-bottom: 20px;
-}
+
 .offf {
     display: none;
     
@@ -62,6 +62,8 @@
 .s p {
     margin: 0
     ;
+    font-size: 14px;
+    font-weight: 100;
     margin-left: 10px;
     margin-top: 10px;
     margin-bottom: 10px;
@@ -80,11 +82,15 @@
 }
 .sideFiltrosCont {
  
-    background-color: aqua;
+    background-color: rgb(126, 143, 255);
     display: flex;
     justify-content: start;
     align-items: center;
     height: 50px;
+    -webkit-box-shadow: 0px 0px 2px -1px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 2px -1px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 2px -1px rgba(0,0,0,0.75);
+    border-bottom: 2px solid black; 
 }
 .sideFiltrosCont p {
     margin: 0;
@@ -100,17 +106,17 @@
 }
 .s .off {
     margin-left: 20px;
-    height: 20px;
-    width: 20px;
+    height: 10px;
+    width: 10px;
     border: 1px solid rgb(0, 0, 0);
     
 }
 
 .s .on {
     margin-left: 20px;
-    height: 20px;
-    width: 20px;
-    background-color: rgb(244, 0, 0);
+    height: 10px;
+    width: 10px;
+    background-color: rgb(0, 0, 0);
 }
 .s {
     display: flex;

@@ -64,7 +64,7 @@ function Main() {
       setElementosClickeados([...elementosClickeados, nombre]);
     }
   };
-console.log(display)
+
   const objeto = {
     audifonos: "rojo,verde",
     microfono: "si,no",
@@ -85,8 +85,7 @@ console.log(display)
     }
   });
 
-  console.log(elementosClickeados);
-  console.log(objetoCreado);
+ 
 
   const filterFix = () => {
     setSearchP("");

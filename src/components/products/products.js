@@ -3,7 +3,7 @@ const products = [
       id: 1,
       name: 'Gabinete Épico - XPG STARKER - Sin Fuente - RGB',
       category: 'gabinetes',
-      subcategoria: { test: "test32" },
+      subcategoria: {},
       subcategory: ['novedades', 'ofertas'],
       price: 180,
       img: "/products/gabinete.png",
@@ -19,7 +19,7 @@ const products = [
       img: "/products/mouse1.png",
       brand: "LogiTech",
       stock: 20,
-      subcategory: "sexo",
+      subcategoria: {},
       nuevoPropiedad: "valor"
     },
     {
@@ -30,7 +30,7 @@ const products = [
       img: "/products/oficce.png",
       brand: "Microsoft",
       stock: 15,
-      subcategory: "sexo",
+      subcategoria: {},
       nuevoPropiedad: "valor"
     },
     {
@@ -54,7 +54,8 @@ const products = [
       img: "/products/razer.png",
       brand: "Razer",
       stock: 25,
-      subcategory: "sexo"
+      subcategoria: {}
+    
     },
     {
       id: 6,
@@ -64,7 +65,7 @@ const products = [
       img: "/products/21.jpg",
       brand: "ASUS",
       stock: 8,
-      subcategory: "sexo"
+      subcategoria: {}
     },
     {
       id: 7,
@@ -74,7 +75,8 @@ const products = [
       img: "/products/Norton.jpg",
       brand: "Norton",
       stock: 12,
-      subcategory: "sexo"
+      subcategoria: {}
+     
     },
     {
       id: 8,
@@ -97,7 +99,9 @@ const products = [
       img: "/products/1241.png",
       brand: "LogiTech",
       stock: 22,
-      subcategory: "sexo"
+      subcategory:["novedades"],
+      subcategoria: {}
+      
     },
     {
       id: 10,
@@ -107,7 +111,8 @@ const products = [
       img: "/products/gabinete.png",
       brand: "Cooler Master",
       stock: 7,
-      subcategory: "sexo"
+      subcategoria: {}
+      
     },
     {
       id: 11,
@@ -116,7 +121,8 @@ const products = [
       price: 349,
       img: "/products/gabinete.png",
       brand: "Adobe",
-      stock: 10
+      stock: 10,
+      subcategoria: {}
     },
     {
       id: 12,
@@ -134,7 +140,7 @@ const products = [
     {
       id: 13,
       name: 'Kit de Periféricos Gamer - Corsair K55 RGB + Harpoon RGB',
-      subcategoria: [{ test: "test32", fack: "facks" }],
+      subcategoria: { test: "test32", fack: "facks" },
       category: 'perifericos',
       subcategory: ['ofertas'],
       price: 299,
@@ -149,7 +155,8 @@ const products = [
       price: 150,
       img: "/products/gabinete.png",
       brand: "NZXT",
-      stock: 20
+      stock: 20,
+      subcategoria: {}
     },
     {
       id: 15,
@@ -159,7 +166,8 @@ const products = [
       price: 249,
       img: "/products/gabinete.png",
       brand: "Corel",
-      stock: 18
+      stock: 18,
+      subcategoria: {}
     },
     {
       id: 16,
@@ -181,7 +189,8 @@ const products = [
       price: 110,
       img: "/products/gabinete.png",
       brand: "SteelSeries",
-      stock: 25
+      stock: 25,
+      subcategoria: {}
     },
     {
       id: 18,
@@ -190,7 +199,8 @@ const products = [
       price: 180,
       img: "/products/gabinete.png",
       brand: "Phanteks",
-      stock: 14
+      stock: 14,
+      subcategoria: {}
     },
     {
       id: 19,
@@ -199,7 +209,8 @@ const products = [
       price: 199,
       img: "/products/gabinete.png",
       brand: "The Document Foundation",
-      stock: 20
+      stock: 20,
+      subcategoria: {}
     },
     {
       id: 20,

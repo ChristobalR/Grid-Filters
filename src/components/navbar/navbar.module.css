@@ -8,6 +8,22 @@ justify-content: start;
 align-items: center;
 position: relative;
 }
+
+.contTop{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 150px;
+  background-color: white;
+}
+.contTopChild{
+  width: 1200px;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+
+}
 .cart {
   position: absolute;
   right: 100px;
@@ -41,6 +57,7 @@ position: relative;
    justify-content: start;
    flex-direction: column;
    padding: 40px;
+   z-index: 20;
   
 
   }
